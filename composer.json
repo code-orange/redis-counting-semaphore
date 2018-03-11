@@ -1,0 +1,21 @@
+{
+	"name": "code-orange/redis-counting-semaphore",
+	"description": "Distributed counting semaphore implementation for redis",
+	"type": "library",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Tim van Dalen",
+			"email": "tim@code-orange.nl"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"CodeOrange\\RedisCountingSemaphore\\": "src/"
+		}
+	},
+	"require": {
+		"predis/predis": "^1.1",
+		"ramsey/uuid": "^3.7"
+	}
+}
