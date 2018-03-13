@@ -2,7 +2,7 @@
 	"name": "code-orange/redis-counting-semaphore",
 	"description": "Distributed counting semaphore implementation for redis",
 	"type": "library",
-	"license": "proprietary",
+	"license": "Apache-2.0",
 	"authors": [
 		{
 			"name": "Tim van Dalen",
