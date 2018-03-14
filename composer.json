@@ -22,6 +22,6 @@
 		"symfony/process": "^4.0"
 	},
 	"scripts": {
-		"test": "php test/index.php"
+		"test": "@php test/index.php"
 	}
 }
