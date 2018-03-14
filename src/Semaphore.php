@@ -187,7 +187,7 @@ class Semaphore {
 	}
 
 	// From section 6.2 of the book
-	public function acquire_lock($acquire_timeout = 10) {
+	private function acquire_lock($acquire_timeout = 10) {
 		$identifier = (string)Uuid::uuid4();
 
 		$end = time() + $acquire_timeout;
@@ -200,7 +200,7 @@ class Semaphore {
 		}
 		return false;
 	}
-	public function release_lock($id) {
+	private function release_lock($id) {
 		$lockname = 'lock:' . $this->name;
 
 		$res = $this->client->transaction(['watch' => $lockname, 'cas' => true, 'retry' => 1000], function (MultiExec $t) use ($id, $lockname) {
