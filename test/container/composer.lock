@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ebfadffd4bb7b6638e2afb4ef2a131b",
+    "content-hash": "79db641af7352e4b57aba6779a032003",
     "packages": [
+        {
+            "name": "code-orange/redis-counting-semaphore",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/code-orange/redis-counting-semaphore.git",
+                "reference": "5a3b0ad65c7fea0457fff8d62f83e428e376465d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/code-orange/redis-counting-semaphore/zipball/5a3b0ad65c7fea0457fff8d62f83e428e376465d",
+                "reference": "5a3b0ad65c7fea0457fff8d62f83e428e376465d",
+                "shasum": ""
+            },
+            "require": {
+                "predis/predis": "^1.1",
+                "ramsey/uuid": "^3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeOrange\\RedisCountingSemaphore\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim van Dalen",
+                    "email": "tim@code-orange.nl"
+                }
+            ],
+            "description": "Distributed counting semaphore implementation for redis",
+            "time": "2018-03-13T15:58:59+00:00"
+        },
         {
             "name": "paragonie/random_compat",
             "version": "v2.0.11",
@@ -185,57 +222,7 @@
             "time": "2018-01-20T00:28:24+00:00"
         }
     ],
-    "packages-dev": [
-        {
-            "name": "symfony/process",
-            "version": "v4.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/process.git",
-                "reference": "6ed08502a7c9559da8e60ea343bdbd19c3350b3e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/6ed08502a7c9559da8e60ea343bdbd19c3350b3e",
-                "reference": "6ed08502a7c9559da8e60ea343bdbd19c3350b3e",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Process\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Process Component",
-            "homepage": "https://symfony.com",
-            "time": "2018-02-19T12:18:43+00:00"
-        }
-    ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],

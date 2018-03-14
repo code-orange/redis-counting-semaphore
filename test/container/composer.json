@@ -1,0 +1,16 @@
+{
+    "name": "code-orange/redis-counting-semaphore-test",
+    "description": "Container to test code-orange/redis-counting-sempahore",
+    "type": "project",
+    "require": {
+        "code-orange/redis-counting-semaphore": "^0.1.0",
+        "predis/predis": "^1.1"
+    },
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Tim van Dalen",
+            "email": "tim@code-orange.nl"
+        }
+    ]
+}

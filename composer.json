@@ -17,5 +17,11 @@
 	"require": {
 		"predis/predis": "^1.1",
 		"ramsey/uuid": "^3.7"
+	},
+	"require-dev": {
+		"symfony/process": "^4.0"
+	},
+	"scripts": {
+		"test": "php test/index.php"
 	}
 }
