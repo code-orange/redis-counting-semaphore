@@ -49,16 +49,18 @@ class Semaphore {
 			// We already have it
 			return true;
 		}
-		$acquired = $this->acquire_fair_with_lock();
-		if ($acquired) {
-			return true;
-		} else {
-			if ($retries > 0 && $sleep > 0) {
-				sleep($sleep);
-				return $this->acquire($sleep, $retries - 1);
+		
+		while ($sleep > 0 && $retries > 0) {
+			$acquired = $this->acquire_fair_with_lock();
+
+			if ($acquired) {
+				return true;
 			}
-			return false;
+
+			$retries -= 1;
+			sleep($sleep);
 		}
+		return false;
 	}
 
 	/**
