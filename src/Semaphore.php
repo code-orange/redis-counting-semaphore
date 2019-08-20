@@ -49,16 +49,23 @@ class Semaphore {
 			// We already have it
 			return true;
 		}
-		$acquired = $this->acquire_fair_with_lock();
-		if ($acquired) {
-			return true;
-		} else {
-			if ($retries > 0 && $sleep > 0) {
-				sleep($sleep);
-				return $this->acquire($sleep, $retries - 1);
-			}
-			return false;
+
+		if ($sleep == null || $retries == null) {
+			$acquired = $this->acquire_fair_with_lock();
+			return $acquired;
 		}
+		
+		while ($sleep > 0 && $retries > 0) {
+			$acquired = $this->acquire_fair_with_lock();
+
+			if ($acquired) {
+				return true;
+			}
+
+			$retries -= 1;
+			sleep($sleep);
+		}
+		return false;
 	}
 
 	/**
@@ -187,7 +194,7 @@ class Semaphore {
 	}
 
 	// From section 6.2 of the book
-	public function acquire_lock($acquire_timeout = 10) {
+	private function acquire_lock($acquire_timeout = 10) {
 		$identifier = (string)Uuid::uuid4();
 
 		$end = time() + $acquire_timeout;
@@ -200,7 +207,7 @@ class Semaphore {
 		}
 		return false;
 	}
-	public function release_lock($id) {
+	private function release_lock($id) {
 		$lockname = 'lock:' . $this->name;
 
 		$res = $this->client->transaction(['watch' => $lockname, 'cas' => true, 'retry' => 1000], function (MultiExec $t) use ($id, $lockname) {
